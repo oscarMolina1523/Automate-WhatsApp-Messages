@@ -1,44 +1,56 @@
 import pywhatkit as kit
 import time
 import keyboard
-import pyautogui  # Importante para controlar el mouse
+import pyautogui
+import csv  # Librería nativa para leer archivos CSV
+import os
 
-# Lista de contactos
-contactos = [
-    ("Mario", "+50586917823")
-]
+# Configuración del archivo
+archivo_datos = "contactos.csv"
 
-# Obtener el tamaño de la pantalla para hacer clic en el centro
+# Obtener el tamaño de la pantalla para el clic de enfoque
 width, height = pyautogui.size()
 
-for nombre, numero in contactos:
-    try:
-        mensaje = f"Hola {nombre} soy joshua, este es un mensaje personalizado de whatsap para automatizar envios de mensajes."
-        print(f"Preparando envío para {nombre}...")
+# Verificar si el archivo existe antes de empezar
+if not os.path.exists(archivo_datos):
+    print(f"❌ Error: No se encontró el archivo '{archivo_datos}' en la carpeta.")
+else:
+    with open(archivo_datos, mode='r', encoding='utf-8-sig') as file:
+        # Leemos el CSV usando el encabezado
+        lector_csv = csv.DictReader(file)
         
-        # 1. Abrir WhatsApp y escribir el mensaje
-        kit.sendwhatmsg_instantly(
-            phone_no=numero, 
-            message=mensaje, 
-            wait_time=22, # Un poco más de tiempo por si el internet está lento
-            tab_close=True,
-            close_time=3
-        )
-        
-        # 2. ASEGURAR EL FOCO: Hacemos un clic en el centro de la pantalla
-        # Esto asegura que el navegador esté activo y el cursor en el chat
-        pyautogui.click(width / 2, height / 2) 
-        time.sleep(1)
-        
-        # 3. PRESIONAR ENTER
-        keyboard.press('enter')
-        
-        print(f"✅ Mensaje enviado a {nombre}")
-        
-        # Espera de seguridad entre personas
-        time.sleep(8) 
-        
-    except Exception as e:
-        print(f"❌ Error con {nombre}: {e}")
+        for fila in lector_csv:
+            # Extraemos los datos de las columnas específicas
+            nombre = fila['nombre completo']
+            numero = fila['numero de telefono']
+            
+            try:
+                mensaje = f"Hola {nombre} soy joshua, este es un mensaje personalizado de whatsap para automatizar envios de mensajes."
+                print(f"🚀 Procesando envío para: {nombre} ({numero})...")
+                
+                # 1. Abrir WhatsApp y escribir el mensaje
+                kit.sendwhatmsg_instantly(
+                    phone_no=numero, 
+                    message=mensaje, 
+                    wait_time=22, 
+                    tab_close=True,
+                    close_time=3
+                )
+                
+                # 2. Clic en el centro para asegurar el foco
+                pyautogui.click(width / 2, height / 2) 
+                time.sleep(1)
+                
+                # 3. Presionar Enter para enviar
+                keyboard.press('enter')
+                
+                print(f"✅ Mensaje enviado con éxito a {nombre}")
+                
+                # Espera de seguridad entre contactos (evita bloqueos)
+                print("Esperando 10 segundos para el siguiente...")
+                time.sleep(10) 
+                
+            except Exception as e:
+                print(f"❌ Error al enviar a {nombre}: {e}")
 
-print("--- Proceso completado ---")
+print("--- 🏁 Proceso de envío masivo completado ---")
