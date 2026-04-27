@@ -25,16 +25,24 @@
 <h2 align="left">Estructura del proyecto</h2>
 
 ###
+```bash
+Automate-WhatsApp-Messages
+┣ whatssapp.py
+┣ contactos.csv
+┗ README.md
 
-<p align="left">Automate-WhatsApp-Messages<br> ┣ whatssapp.py<br> ┣ contactos.csv<br> ┗ README.md</p>
-
+```
 ###
 
 <h2 align="left">Requisitos</h2>
 
 ###
 
-<p align="left">Antes de ejecutar el script, asegúrate de tener:<br><br>- Python instalado (recomendado 3.8 o superior)<br>- Google Chrome instalado<br>- Sesión activa en WhatsApp Web<br><br>Instala las dependencias con:<br><br>pip install pywhatkit pyautogui keyboard</p>
+<p align="left">Antes de ejecutar el script, asegúrate de tener:<br><br>- Python instalado (recomendado 3.8 o superior)<br>- Google Chrome instalado<br>- Sesión activa en WhatsApp Web<br><br>Instala las dependencias con:</p>
+
+  ```bash
+  pip install pywhatkit pyautogui keyboard
+```
 
 ###
 
@@ -42,7 +50,16 @@
 
 ###
 
-<p align="left">El archivo contactos.csv debe tener la siguiente estructura:<br><br>nombre completo,numero de telefono<br>Juan Perez,+50588888888<br>Maria Lopez,+50577777777<br><br>Importante:<br><br>El número debe incluir el código de país (ejemplo: +505 para Nicaragua)<br>No agregar espacios innecesarios</p>
+<p align="left">El archivo contactos.csv debe tener la siguiente estructura:<p/>
+  
+```bash
+  nombre completo,numero de telefono
+  Juan Perez,+50588888888
+  Maria Lopez,+50577777777
+```
+  Importante:
+  - El número debe incluir el código de país (ejemplo: +505 para Nicaragua)
+  - No agregar espacios innecesarios
 
 ###
 
@@ -50,9 +67,20 @@
 
 ###
 
-<p align="left">Clona el repositorio:<br><br>git clone https://github.com/oscarMolina1523/Automate-WhatsApp-Messages.git<br><br>Accede al proyecto:<br><br>cd Automate-WhatsApp-Messages<br><br>Ejecuta el script:<br>python whatssapp.py</p>
+Clona el repositorio:
+```bash
+git clone https://github.com/oscarMolina1523/Automate-WhatsApp-Messages.git
+```
 
-###
+Accede al proyecto:
+
+```bash
+cd Automate-WhatsApp-Messages
+```
+Ejecuta el script:
+```bash
+python whatssapp.py
+```
 
 <h2 align="left">¿Cómo funciona?</h2>
 
@@ -82,7 +110,11 @@
 
 ###
 
-<p align="left">Puedes modificar el mensaje en esta línea:<br><br>mensaje = f"Hola {nombre} ..."</p>
+<p align="left">Puedes modificar el mensaje en esta línea:
+
+  ```bash
+  mensaje = f"Hola {nombre} ..."
+```
 
 ###
 
@@ -90,7 +122,11 @@
 
 ###
 
-<p align="left">🚀 Procesando envío para: Juan Perez (+50588888888)...<br>✅ Mensaje enviado con éxito a Juan Perez<br>Esperando 10 segundos para el siguiente...</p>
+```bash
+🚀 Procesando envío para: Juan Perez (+50588888888)...
+✅ Mensaje enviado con éxito a Juan Perez
+Esperando 10 segundos para el siguiente...
+```
 
 ###
 
