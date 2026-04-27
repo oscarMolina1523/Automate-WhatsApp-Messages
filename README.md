@@ -150,7 +150,7 @@ Esperando 10 segundos para el siguiente...
 
 ###
 
-<p align="left">Desarrollado por Oscar Molina<br><br>GitHub: https://github.com/oscarMolina1523</p>
+<p align="left">Desarrollado por Oscar Molina<br><br>Linkedin: https://www.linkedin.com/in/oscar-molina-916195309/</br><br>GitHub: https://github.com/oscarMolina1523</p>
 
 ###
 
